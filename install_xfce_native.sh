@@ -167,7 +167,7 @@ else
 fi
 
 # Install core dependencies
-dependencies=('wget' 'proot-distro' 'x11-repo' 'tur-repo' 'pulseaudio' 'git')
+dependencies=('wget -nc -c' 'proot-distro' 'x11-repo' 'tur-repo' 'pulseaudio' 'git')
 missing_deps=()
 for dep in "${dependencies[@]}"; do
     if ! command -v "$dep" &> /dev/null; then
@@ -208,11 +208,11 @@ curl -o $HOME/.config/starship.toml https://raw.githubusercontent.com/phoenixbyr
 sed -i "s/phoenixbyrd/$username/" $HOME/.config/starship.toml
 
 # Download Wallpaper
-wget https://raw.githubusercontent.com/phoenixbyrd/Termux_XFCE/main/dark_waves.png
+wget -nc -c https://raw.githubusercontent.com/phoenixbyrd/Termux_XFCE/main/dark_waves.png
 mv dark_waves.png $PREFIX/share/backgrounds/xfce/
 
 # Install WhiteSur-Dark Theme
-wget https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2023-04-26.zip
+wget -nc -c https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2023-04-26.zip
 unzip 2023-04-26.zip
 tar -xf WhiteSur-gtk-theme-2023-04-26/release/WhiteSur-Dark-44-0.tar.xz
 #mv WhiteSur-Dark/ $PREFIX/share/themes/
@@ -221,7 +221,7 @@ rm -rf WhiteSur*
 rm 2023-04-26.zip
 
 # Install Fluent Cursor Icon Theme
-wget https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2023-02-01.zip
+wget -nc -c https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2023-02-01.zip
 unzip 2023-02-01.zip
 #mv Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
 rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
@@ -631,23 +631,23 @@ X-XFCE-Source=file:///data/data/com.termux/files/home/Desktop/xfce4-terminal-emu
 EOF
 
 # Setup Fonts
-wget https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip
+wget -nc -c https://github.com/microsoft/cascadia-code/releases/download/v2111.01/CascadiaCode-2111.01.zip
 unzip CascadiaCode-2111.01.zip
 mv otf/static/* .fonts/ && rm -rf otf
 mv ttf/* .fonts/ && rm -rf ttf/
 rm -rf woff2/ && rm -rf CascadiaCode-2111.01.zip
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
+wget -nc -c https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
 unzip Meslo.zip
 mv *.ttf .fonts/
 rm Meslo.zip
 rm LICENSE.txt
 rm readme.md
 
-wget https://github.com/phoenixbyrd/Termux_XFCE/raw/main/NotoColorEmoji-Regular.ttf
+wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/NotoColorEmoji-Regular.ttf
 mv NotoColorEmoji-Regular.ttf .fonts
 
-wget https://github.com/phoenixbyrd/Termux_XFCE/raw/main/font.ttf
+wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/font.ttf
 mv font.ttf .termux/font.ttf
 
 # Create start script
@@ -793,7 +793,7 @@ cp $HOME/Desktop/App-Installer.desktop $PREFIX/share/applications
 
 # cp2menu
 
-wget https://github.com/phoenixbyrd/Termux_XFCE/raw/refs/heads/main/cp2menu -O $PREFIX/bin/cp2menu
+wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/refs/heads/main/cp2menu -O $PREFIX/bin/cp2menu
 chmod +x $PREFIX/bin/cp2menu
 
 echo "[Desktop Entry]
@@ -846,7 +846,7 @@ pd login debian --shared-tmp -- env DISPLAY=:0 rm /etc/localtime
 pd login debian --shared-tmp -- env DISPLAY=:0 cp /usr/share/zoneinfo/$timezone /etc/localtime
 
 # Setup Hardware Acceleration in proot
-pd login debian --shared-tmp -- env DISPLAY=:0 wget https://github.com/phoenixbyrd/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+pd login debian --shared-tmp -- env DISPLAY=:0 wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 pd login debian --shared-tmp -- env DISPLAY=:0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 
 mkdir -p $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/$username/.config/
@@ -861,7 +861,7 @@ cat <<'EOF' > $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/$usernam
 Xcursor.theme: dist-dark
 EOF
 
-wget https://github.com/phoenixbyrd/Termux_XFCE/raw/main/conky.tar.gz
+wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/conky.tar.gz
 tar -xvzf conky.tar.gz
 rm conky.tar.gz
 mv $HOME/.config/conky/ $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/$username/.config/
