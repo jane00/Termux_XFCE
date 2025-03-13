@@ -211,6 +211,9 @@ sed -i "s/phoenixbyrd/$username/" $HOME/.config/starship.toml
 wget -nc -c https://raw.githubusercontent.com/phoenixbyrd/Termux_XFCE/main/dark_waves.png
 mv dark_waves.png $PREFIX/share/backgrounds/xfce/
 
+if [ -f "$PREFIX/share/themes/WhiteSur-Dark" ]; then
+	echo -e " 检测到WhiteSur-Dark Theme对应目录已存不再重复下载"
+else
 # Install WhiteSur-Dark Theme
 wget -nc -c https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2023-04-26.zip
 unzip 2023-04-26.zip
@@ -219,7 +222,11 @@ tar -xf WhiteSur-gtk-theme-2023-04-26/release/WhiteSur-Dark-44-0.tar.xz
 rsync -av --remove-source-files WhiteSur-Dark/ $PREFIX/share/themes/
 rm -rf WhiteSur*
 rm 2023-04-26.zip
+fi
 
+if [ -f "$PREFIX/share/icons/cursors/dist-dark" ]; then
+	echo -e " 检测到WhiteSur-Dark Theme对应目录已存不再重复下载"
+elif
 # Install Fluent Cursor Icon Theme
 wget -nc -c https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2023-02-01.zip
 unzip 2023-02-01.zip
@@ -229,6 +236,7 @@ rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist $PREFI
 rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
 rm -rf $HOME//Fluent*
 rm 2023-02-01.zip
+fi
 
 # Create xsettings.xml for Termux
 cat <<'EOF' > $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
