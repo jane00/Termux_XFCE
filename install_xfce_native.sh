@@ -637,12 +637,12 @@ mv otf/static/* .fonts/ && rm -rf otf
 mv ttf/* .fonts/ && rm -rf ttf/
 rm -rf woff2/ && rm -rf CascadiaCode-2111.01.zip
 
-wget -nc -c https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
-unzip Meslo.zip
-mv *.ttf .fonts/
-rm Meslo.zip
-rm LICENSE.txt
-rm readme.md
+#wget -nc -c https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
+#unzip Meslo.zip
+#mv *.ttf .fonts/
+#rm Meslo.zip
+#rm LICENSE.txt
+#rm readme.md
 
 wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/NotoColorEmoji-Regular.ttf
 mv NotoColorEmoji-Regular.ttf .fonts
