@@ -12,10 +12,10 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Log file for debugging
-LOG_FILE="$HOME/termux_setup.log"
+#LOG_FILE="$HOME/termux_setup.log"
 
 # Redirect both stdout and stderr to the log file and the terminal
-exec > >(tee -a "$LOG_FILE") 2>&1
+#exec > >(tee -a "$LOG_FILE") 2>&1
 
 # Temporary directory for setup
 TEMP_DIR=$(mktemp -d)
