@@ -167,7 +167,7 @@ else
 fi
 
 # Install core dependencies
-dependencies=('wget -nc -c' 'proot-distro' 'x11-repo' 'tur-repo' 'pulseaudio' 'git')
+dependencies=('wget' 'proot-distro' 'x11-repo' 'tur-repo' 'pulseaudio' 'git')
 missing_deps=()
 for dep in "${dependencies[@]}"; do
     if ! command -v "$dep" &> /dev/null; then
