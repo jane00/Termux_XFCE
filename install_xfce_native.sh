@@ -186,7 +186,7 @@ mkdir -p "$HOME/Desktop" "$HOME/Downloads" "$HOME/.fonts" "$HOME/.config" "$HOME
 #ln -s /storage/emulated/0/Pictures $HOME/Pictures
 
 # Install XFCE desktop environment
-xfce_packages=('xfce4' 'xfce4-goodies' 'xfce4-pulseaudio-plugin' 'firefox' 'starship' 'termux-x11-nightly' 'virglrenderer-android' 'mesa-vulkan-icd-freedreno-dri3' 'fastfetch' 'papirus-icon-theme' 'eza' 'bat')
+xfce_packages=('xfce4' 'xfce4-goodies' 'xfce4-pulseaudio-plugin' 'firefox' 'starship' 'termux-x11-nightly' 'virglrenderer-android' 'mesa-vulkan-icd-freedreno-dri3' 'fastfetch' 'papirus-icon-theme' 'eza' 'bat' 'rsync')
 if ! pkg install -y "${xfce_packages[@]}" -o Dpkg::Options::="--force-confold"; then
     echo "Failed to install XFCE packages. Exiting."
     exit 1
@@ -213,15 +213,18 @@ mv dark_waves.png $PREFIX/share/backgrounds/xfce/
 wget https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2023-04-26.zip
 unzip 2023-04-26.zip
 tar -xf WhiteSur-gtk-theme-2023-04-26/release/WhiteSur-Dark-44-0.tar.xz
-mv WhiteSur-Dark/ $PREFIX/share/themes/
+#mv WhiteSur-Dark/ $PREFIX/share/themes/
+rsync -av --remove-source-files WhiteSur-Dark/ $PREFIX/share/themes/
 rm -rf WhiteSur*
 rm 2023-04-26.zip
 
 # Install Fluent Cursor Icon Theme
 wget https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2023-02-01.zip
 unzip 2023-02-01.zip
-mv Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
-mv Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
+#mv Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
+rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
+#mv Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
+rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
 rm -rf $HOME//Fluent*
 rm 2023-02-01.zip
 
