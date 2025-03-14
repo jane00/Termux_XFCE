@@ -237,7 +237,7 @@ else
   rm -rf $HOME//Fluent*
   #rm 2023-02-01.zip
 fi
-
+echo -e " 240"
 # Create xsettings.xml for Termux
 cat <<'EOF' > $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
 <?xml version="1.1" encoding="UTF-8"?>
@@ -288,7 +288,7 @@ cat <<'EOF' > $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
   </property>
 </channel>
 EOF
-
+echo -e "291"
 cat <<'EOF' > $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
 <?xml version="1.1" encoding="UTF-8"?>
 
@@ -652,12 +652,13 @@ rm -rf woff2/
 #rm Meslo.zip
 #rm LICENSE.txt
 #rm readme.md
-
+echo -e "655"
 wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/NotoColorEmoji-Regular.ttf
 cp NotoColorEmoji-Regular.ttf .fonts
-
+echo -e "658"
 wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/font.ttf
 cp font.ttf .termux/font.ttf
+echo -e "661"
 
 # Create start script
 cat <<'EOF' > $PREFIX/bin/start
@@ -721,7 +722,7 @@ env DISPLAY=:0 GALLIUM_DRIVER=virpipe dbus-launch --exit-with-session xfce4-sess
 
 exit 0
 EOF
-
+echo -e "725"
 chmod +x $PREFIX/bin/start
 
 # Create shutdown utility
@@ -737,7 +738,7 @@ pkill -f termux
 EOF
 
 chmod +x $PREFIX/bin/kill_termux_x11
-
+echo -e "741"
 # Create kill_termux_x11.desktop
 echo "[Desktop Entry]
 Version=1.0
@@ -752,7 +753,7 @@ StartupNotify=false
 " > $HOME/Desktop/kill_termux_x11.desktop
 chmod +x $HOME/Desktop/kill_termux_x11.desktop
 mv $HOME/Desktop/kill_termux_x11.desktop $PREFIX/share/applications
-
+echo -e "Create prun script"
 # Create prun script
 cat <<'EOF' > $PREFIX/bin/prun
 #!/bin/bash
@@ -761,7 +762,7 @@ pd login debian --user $varname --shared-tmp -- env DISPLAY=:0 $@
 
 EOF
 chmod +x $PREFIX/bin/prun
-
+echo -e "Create zrun script"
 # Create zrun script
 cat <<'EOF' > $PREFIX/bin/zrun
 #!/bin/bash
@@ -781,10 +782,10 @@ EOF
 chmod +x $PREFIX/bin/zrunhud
 
 # App Installer
-
+echo -e "App Installer"
 git clone https://github.com/phoenixbyrd/App-Installer.git $HOME/.config/App-Installer
 chmod +x $HOME/.config/App-Installer/*
-
+echo -e "788App Installer"
 echo "[Desktop Entry]
 Version=1.0
 Type=Application
