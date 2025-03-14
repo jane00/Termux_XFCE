@@ -3,7 +3,7 @@
 # Unofficial Bash Strict Mode
 set -euo pipefail
 IFS=$'\n\t'
-
+no
 # Color definitions
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -654,10 +654,10 @@ rm -rf woff2/
 #rm readme.md
 
 wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/NotoColorEmoji-Regular.ttf
-mv NotoColorEmoji-Regular.ttf .fonts
+cp NotoColorEmoji-Regular.ttf .fonts
 
 wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/font.ttf
-mv font.ttf .termux/font.ttf
+cp font.ttf .termux/font.ttf
 
 # Create start script
 cat <<'EOF' > $PREFIX/bin/start
