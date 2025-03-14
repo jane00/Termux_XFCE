@@ -221,7 +221,7 @@ tar -xf WhiteSur-gtk-theme-2023-04-26/release/WhiteSur-Dark-44-0.tar.xz
 #mv WhiteSur-Dark/ $PREFIX/share/themes/
 rsync -av --remove-source-files WhiteSur-Dark/ $PREFIX/share/themes/
 rm -rf WhiteSur*
-rm 2023-04-26.zip
+#rm 2023-04-26.zip
 fi
 
 if [ -f "$PREFIX/share/icons/cursors/dist-dark" ]; then
@@ -235,7 +235,7 @@ else
   #mv Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
   rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
   rm -rf $HOME//Fluent*
-  rm 2023-02-01.zip
+  #rm 2023-02-01.zip
 fi
 
 # Create xsettings.xml for Termux
@@ -643,7 +643,8 @@ wget -nc -c https://github.com/microsoft/cascadia-code/releases/download/v2111.0
 unzip CascadiaCode-2111.01.zip
 mv otf/static/* .fonts/ && rm -rf otf
 mv ttf/* .fonts/ && rm -rf ttf/
-rm -rf woff2/ && rm -rf CascadiaCode-2111.01.zip
+rm -rf woff2/ 
+#&& rm -rf CascadiaCode-2111.01.zip
 
 #wget -nc -c https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
 #unzip Meslo.zip
@@ -871,7 +872,7 @@ EOF
 
 wget -nc -c https://github.com/phoenixbyrd/Termux_XFCE/raw/main/conky.tar.gz
 tar -xvzf conky.tar.gz
-rm conky.tar.gz
+#rm conky.tar.gz
 mv $HOME/.config/conky/ $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/$username/.config/
 
 # Conky
