@@ -226,16 +226,16 @@ fi
 
 if [ -f "$PREFIX/share/icons/cursors/dist-dark" ]; then
 	echo -e " 检测到WhiteSur-Dark Theme对应目录已存不再重复下载"
-elif
-	# Install Fluent Cursor Icon Theme
-	wget -nc -c https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2023-02-01.zip
-	unzip 2023-02-01.zip
-	#mv Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
-	rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
-	#mv Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
-	rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
-	rm -rf $HOME//Fluent*
-	rm 2023-02-01.zip
+else
+  # Install Fluent Cursor Icon Theme
+  wget -nc -c https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2023-02-01.zip
+  unzip 2023-02-01.zip
+  #mv Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
+  rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist $PREFIX/share/icons/ 
+  #mv Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
+  rsync -av --remove-source-files Fluent-icon-theme-2023-02-01/cursors/dist-dark $PREFIX/share/icons/
+  rm -rf $HOME//Fluent*
+  rm 2023-02-01.zip
 fi
 
 # Create xsettings.xml for Termux
